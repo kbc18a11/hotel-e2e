@@ -1,0 +1,27 @@
+[project]
+name = "hotel-e2e"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "sarasaranuranura", email = "wada121400@gmail.com" }
+]
+dependencies = [
+    "pytest>=8.3.2",
+    "selenium>=4.23.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/hotel_e2e"]
