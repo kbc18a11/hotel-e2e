@@ -25,3 +25,6 @@ allow-direct-references = true
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/hotel_e2e"]
+
+[tool.ruff]
+line-length = 125
