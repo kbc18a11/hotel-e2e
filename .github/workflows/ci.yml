@@ -17,6 +17,6 @@ jobs:
       - name: Install dependencies
         run: |
           pip install get-chrome-driver --upgrade
-          rye sync --dev
+          rye sync
       - name: pytest
         run: rye run pytest
