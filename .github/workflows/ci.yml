@@ -1,0 +1,26 @@
+name: CI
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: Install the latest version of uv
+        uses: astral-sh/setup-uv@v2
+        with:
+          version: 'latest'
+      - name: Install the latest version of rye
+        uses: eifinger/setup-rye@v4
+      - name: Install dependencies
+        run: |
+          pip install get-chrome-driver --upgrade
+          rye sync
+      - name: pytest
+        run: rye run pytest
