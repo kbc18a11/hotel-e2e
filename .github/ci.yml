@@ -1,0 +1,20 @@
+name: Octo Organization CI
+
+on: pull_request
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@master
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.12
+      - name: Install dependencies
+        run: |
+          pip install get-chrome-driver --upgrade
+          rye sync --dev
+      - name: pytest
+        run: rye run pytest
